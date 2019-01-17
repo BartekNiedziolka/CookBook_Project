@@ -32,9 +32,9 @@ public class RecipeDTO {
 
     public List<String> dietsDTO() {
         List<String> diets = new ArrayList<>();
-        diets.add("wegetariańskie");
-        diets.add("bezglutenowe");
-        diets.add("niskokaloryczne");
+        diets.add("wegetariańska");
+        diets.add("bezglutenowa");
+        diets.add("niskokaloryczna");
         return diets;
     }
 

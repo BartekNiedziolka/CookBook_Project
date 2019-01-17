@@ -26,12 +26,11 @@ public class Recipe {
     @Column(length = 20, name = "meal_type")
     private String mealType;
 
-    @OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER)
-//    @NotEmpty
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe", fetch = FetchType.EAGER)
     private List<QuantityComponent> quantityComponents = new ArrayList<>();
 
     @Size(max = 1000)
-    //@NotBlank
+    @NotBlank
     private String description;
 
     @Column(name = "time_of_day", length = 20)

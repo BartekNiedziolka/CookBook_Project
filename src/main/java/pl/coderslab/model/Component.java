@@ -15,9 +15,9 @@ public class Component {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-   // @Size(min = 2, max = 50)
-    //@NotBlank
-    //@Column(unique = true)
+//    @Size(min = 2, max = 50)
+//    @NotBlank
+//    @Column(unique = true)
     private String name;
 
     @OneToMany(mappedBy = "component", fetch = FetchType.EAGER)

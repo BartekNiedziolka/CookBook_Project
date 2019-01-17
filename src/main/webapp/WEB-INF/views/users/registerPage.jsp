@@ -1,31 +1,23 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Rejestracja</title>
+    <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,300" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form:form modelAttribute="user" method="post">
-
-    <form:hidden path="id"></form:hidden>
-    <label>Imię:</label><br>
-    <form:input path="firstName"/><br>
-    <form:errors path="firstName"/><br>
-
-    <label>Nazwisko:</label><br>
-    <form:input path="lastName"/><br>
-    <form:errors path="lastName"/><br>
-
-    <label>Email:</label><br>
-    <form:input path="email"/><br>
-    <form:errors path="email"/><br>
-
-    <label>Hasło:</label><br>
-    <form:password path="password"/><br>
-    <form:errors path="password"/><br>
-
-    <input type="submit" value="Zarejestruj się"/>
+<form:form method="post" modelAttribute="user" class="login" name="f">
+    <h1 class="login-title">Rejestracja</h1>
+    <form:errors path="userName"/>
+    <form:input class="login-input" path="userName" placeholder="login"/>
+    <form:errors path="email"/>
+    <form:input class="login-input" path="email" placeholder="email"/>
+    <form:errors path="password"/>
+    <form:password class="login-input" path="password" placeholder="password"/>
+    <input type="submit" value="Zarejestruj" class="login-button">
 </form:form>
 </body>
 </html>

@@ -15,20 +15,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50, name = "first_name")
+    @Column(length = 50, name = "user_name", unique = true)
     @NotBlank
-    private String firstName;
-
-    @Column(length = 50, name = "last_name")
-    @NotBlank
-    private String lastName;
+    private String userName;
 
     @Email
     @NotBlank
     @Column(unique = true)
     private String email;
 
-    @Column(length = 50)
     @NotBlank
     private String password;
 
@@ -41,22 +36,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -75,7 +54,19 @@ public class User {
         this.password = password;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 }

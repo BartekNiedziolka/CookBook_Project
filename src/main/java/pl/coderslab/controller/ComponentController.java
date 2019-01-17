@@ -15,6 +15,7 @@ import pl.coderslab.model.Recipe;
 import pl.coderslab.repository.ComponentRepository;
 import pl.coderslab.repository.QuantityComponentRepository;
 import pl.coderslab.repository.RecipeRepository;
+import pl.coderslab.repository.UserRepository;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -31,6 +32,8 @@ public class ComponentController {
     private RecipeRepository recipeRepository;
     @Autowired
     private RecipeDTO recipeDTO;
+    @Autowired
+    private UserRepository userRepositor;
 
     @ModelAttribute("nameComponents")
     public List<String> allComponents() {
@@ -40,10 +43,6 @@ public class ComponentController {
     public List<String> unitOfMeasurement() {
         return recipeDTO.unitOfMeasurementDTO();
     }
-//    @ModelAttribute("myComponents")
-//    public List<QuantityComponent> addedComponents(Long id) {
-//        return quantityComponentRepository.findAllByRecipeId(id);
-//    }
 
     @RequestMapping(value = "/add/{recipeId}",method = RequestMethod.GET)
     public String addComponent(@PathVariable long recipeId, Model model) {
@@ -51,22 +50,28 @@ public class ComponentController {
         QuantityComponent quantityComponent = new QuantityComponent();
         quantityComponent.setRecipe(recipe);
         model.addAttribute("quantityComponent", quantityComponent);
+        model.addAttribute("recipe", recipe);
         return "/components/addComponents";
     }
 
     @RequestMapping(value = "/add/{recipeId}", method = RequestMethod.POST)
-    public String saveComponent(@Valid QuantityComponent quantityComponent, @PathVariable long recipeId, BindingResult result) {
+    public String saveComponent(@Valid QuantityComponent quantityComponent, BindingResult result, @PathVariable long recipeId) {
         if (result.hasErrors()) {
             return "/components/addComponents";
         }
-        Recipe recipe = recipeRepository.findOne(recipeId);
-        recipe.getQuantityComponents().add(quantityComponent);
-        recipeRepository.save(recipe);
 
         Component component = componentRepository.findOneByName(quantityComponent.getName());
         quantityComponent.setComponent(component);
         quantityComponentRepository.save(quantityComponent);
+        
 
         return "redirect:/component/add/" + recipeId;
+    }
+
+    @RequestMapping(value = "/delete/{quantityComponentId}/{recipeId}", method =  RequestMethod.GET)
+    public String deleteQComponent(@PathVariable long quantityComponentId,@PathVariable long recipeId) {
+        QuantityComponent quantityComponent = quantityComponentRepository.findOne(quantityComponentId);
+        quantityComponentRepository.delete(quantityComponent);
+        return "redirect:/component/add/{recipeId}";
     }
 }

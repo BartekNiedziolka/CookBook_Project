@@ -2,7 +2,7 @@ package pl.coderslab.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "quantity_component")
@@ -13,6 +13,7 @@ public class QuantityComponent {
     private long id;
 
     @Min(0)
+    @NotNull
     private Integer quantity;
 
     @Transient
@@ -22,6 +23,7 @@ public class QuantityComponent {
     private String unitOfMeasurement;
 
     @ManyToOne
+//    @NotNull
     private Component component;
 
     @ManyToOne
