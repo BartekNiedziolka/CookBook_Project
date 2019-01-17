@@ -63,7 +63,7 @@ public class ComponentController {
         Component component = componentRepository.findOneByName(quantityComponent.getName());
         quantityComponent.setComponent(component);
         quantityComponentRepository.save(quantityComponent);
-        
+
 
         return "redirect:/component/add/" + recipeId;
     }
