@@ -4,41 +4,58 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-<div class="container">
-    <p>
+<body class="body-mypage">
+<div class="center">
+    <h2>
         Składniki:
-    </p>
-    <table class="table table-bordered">
+    </h2>
+    <div class="center text-left">
+    <ul>
         <c:forEach items="${quantityComponents}" var="component">
-            <tr>
-                <td>${component.component.name}</td>
-                <td>${component.getQuantity()} ${component.getUnitOfMeasurement()}</td>
-            </tr>
+            <li>
+                    ${component.component.name}
+                    ${component.getQuantity()} ${component.getUnitOfMeasurement()}
+            </li>
         </c:forEach>
-        <tr>
-    </table>
+    </ul>
+    </div>
     <a href = "<c:url value = "/component/add/${recipe.getId()}"/>">Edytuj</a>
 </div>
-<div class="container">
+<div class="center ">
     <h2>
         <c:out value="${recipe.title}"/>
     </h2>
+    <div class="center text-left">
     <ul>
-        <li><c:out value="${recipe.mealType}"/></li>
-        <li><c:out value="${recipe.timeOfDay}"/></li>
-        <li><c:out value="${recipe.country}"/></li>
-        <li><c:out value="${recipe.diet}"/></li>
-    </ul><br>
-    <p>
+        <c:if test="${not empty recipe.mealType}">
+            <li><c:out value="${recipe.mealType}"/></li>
+        </c:if>
+        <c:if test="${not empty recipe.timeOfDay}">
+            <li><c:out value="${recipe.timeOfDay}"/></li>
+        </c:if>
+        <c:if test="${not empty recipe.country}">
+            <li><c:out value="${recipe.country}"/></li>
+        </c:if>
+        <c:if test="${not empty recipe.diet}">
+            <li><c:out value="${recipe.diet}"/></li>
+        </c:if>
+    </ul>
+    </div>
+    <div class="margin-left-right">
+    <p class="">
         <c:out value="${recipe.description}"/>
-    </p><br>
-    <c:out value="${recipe.signature}"/>
+    </p>
+    </div>
+    <c:if test="${not empty recipe.signature}">
+        <c:out value="${recipe.signature}"/>
+    </c:if>
     <a href = "<c:url value = "/recipe/edit/${recipe.getId()}"/>">Edytuj</a>
+</div>
+<div class="bacground-div">
+
 </div>
 </body>
 </html>

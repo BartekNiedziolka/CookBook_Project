@@ -27,7 +27,7 @@ public class User {
     @NotBlank
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "user", fetch = FetchType.EAGER)
     private List<Recipe> recipes = new ArrayList<>();
 
     public Long getId() {

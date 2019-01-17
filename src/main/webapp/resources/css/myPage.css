@@ -1,7 +1,7 @@
 body {
-    /*background: #E0E0E0 url("../img/background-dashboard.jpg") no-repeat;*/
+    background: #E0E0E0 url("../img/background.jpg") no-repeat;
     background-size: 100%;
-    filter:alpha(opacity=50);
+    font-family: 'Nunito', sans-serif;
 }
 .login {
     margin: 20px auto;
@@ -64,4 +64,11 @@ h1.login-title {
     text-decoration:none;
     font-size:13px;
 
+}
+.mylist {
+    max-width: 300px;
+    margin: 10px auto;
+    padding:  10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
 }

@@ -8,7 +8,7 @@
     <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,300" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="body-home">
 <form:form method="post" modelAttribute="user" class="login" name="f">
     <h1 class="login-title">Rejestracja</h1>
     <form:errors path="userName"/>

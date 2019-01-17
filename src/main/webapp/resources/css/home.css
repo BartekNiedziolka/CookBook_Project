@@ -1,7 +1,26 @@
-body {
-    /*background: #E0E0E0 url("../img/background.jpg") no-repeat;*/
+/*body {*/
+    /*background-size: 100%;*/
+    /*font-family: 'Nunito', sans-serif;*/
+
+/*}*/
+.body-mypage{
+    background: #E0E0E0 url("/resources/img/backgroundMyPage.jpg") no-repeat;
     background-size: 100%;
     font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+.body-add{
+    background: #E0E0E0 url("/resources/img/background2.jpg") no-repeat;
+    background-size: 100%;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+.body-home{
+    background: #E0E0E0 url("/resources/img/background.jpg") no-repeat;
+    background-size: 100%;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+
 }
 
 .buttons {
@@ -10,16 +29,6 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     display: block;
-}
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #D7D7D7;
-    color: white;
-    text-align: center;
 }
 
 .buttonLinks {
@@ -39,6 +48,8 @@ footer {
     padding: 30px 25px;
     background: white;
     border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    color: #8a97a0;
 }
 
 h1.login-title {
@@ -98,7 +109,7 @@ h1.login-title {
 
 }
 .button-home {
-    width: 100px;
+    width: 200px;
     height: 50px;
     padding: 0;
     font-size: 20px;
@@ -109,4 +120,40 @@ h1.login-title {
     border-radius: 5px;
     cursor: pointer;
     outline: 0;
+}
+
+.center{
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.container {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.text-left{
+    text-align: left;
+}
+.table-center {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+.bacground-div {
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.5);;
+    top: 0px;
+    bottom: 0px;
+    position: fixed;
+    left: 50%;
+    margin: 0px -25%;
+    border-left: 2px solid ;
+    border-right: 2px solid;
+    border-color: rgba(102,102,102, 0.5);
+    padding: 0px;
+    z-index: -1;
+}
+.pos-fix {
+    position: fixed;
 }

@@ -9,7 +9,7 @@
     <link href="<c:url value="/resources/css/form.css" />" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,300" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="">
 <div>
         <form:form modelAttribute="recipe" method="post">
 

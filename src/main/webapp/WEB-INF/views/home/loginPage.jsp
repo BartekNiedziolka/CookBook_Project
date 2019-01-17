@@ -8,21 +8,22 @@
     <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,300" rel="stylesheet" type="text/css">
 </head>
-<body>
-<form:form modelAttribute="user" method="post" class="login" name="f">
+<body class="body-home">
+<div class="login">
+<form:form modelAttribute="user" method="post" name="f">
 
     <h1 class="login-title">Logowanie</h1>
-    <div class="form-group">
-        <div class="col-xs-15">
-            <div>
-                <c:if test="${param.error != null}">
-                    <div class="alert alert-danger col-xs-offset-1 col-xs-10">
-                        Invalid username or password
-                    </div>
-                </c:if>
-            </div>
-        </div>
-    </div>
+    <%--<div class="form-group">--%>
+        <%--<div class="col-xs-15">--%>
+            <%--<div>--%>
+                <%--<c:if test="${param.error != null}">--%>
+                    <%--<div class="alert alert-danger col-xs-offset-1 col-xs-10">--%>
+                        <%--Invalid username or password--%>
+                    <%--</div>--%>
+                <%--</c:if>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <div style="margin-bottom: 1px" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
         <input type="text" name="userName" placeholder="login" class="login-input">
@@ -39,5 +40,6 @@
         </div>
     </div>
 </form:form>
+</div>
 </body>
 </html>

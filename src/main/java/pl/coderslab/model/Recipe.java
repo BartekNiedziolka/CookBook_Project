@@ -26,7 +26,7 @@ public class Recipe {
     @Column(length = 20, name = "meal_type")
     private String mealType;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe", fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "recipe", fetch = FetchType.EAGER)
     private List<QuantityComponent> quantityComponents = new ArrayList<>();
 
     @Size(max = 1000)
