@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.coderslab.Service.UserService;
+import pl.coderslab.service.UserService;
 import pl.coderslab.model.User;
 
 import javax.servlet.http.HttpSession;

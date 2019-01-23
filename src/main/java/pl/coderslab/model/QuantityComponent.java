@@ -1,5 +1,7 @@
 package pl.coderslab.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -12,14 +14,16 @@ public class QuantityComponent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Min(0)
-    @NotNull
+    @Min(value = 0, message = "Podaj wartość większą od 0")
+    @NotNull(message = "Pole nie może być puste")
     private Integer quantity;
 
     @Transient
+    @NotEmpty(message = "Pole nie może być puste")
     private String name;
 
     @Column(name = "unit_of_measurement", length = 15)
+    @NotEmpty(message = "Pole nie może być puste")
     private String unitOfMeasurement;
 
     @ManyToOne

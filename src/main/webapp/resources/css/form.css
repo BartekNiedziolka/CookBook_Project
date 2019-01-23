@@ -1,11 +1,13 @@
-* { box-sizing: border-box; }
-body {
-    background: #E0E0E0 url("/resources/img/background2.jpg") no-repeat;
+
+.body-form {
+    background: #E0E0E0 url("/resources/img/backgroundAdd.jpg") repeat;
     background-size: 100%;
     font-family: 'Nunito', sans-serif;
+    text-align: center;
 }
-form {
-    max-width: 300px;
+
+.form {
+    width: 400px;
     margin: 10px auto;
     padding:  10px 20px;
     background: #f4f7f8;
@@ -46,10 +48,7 @@ select {
     height: auto;
     border-radius: 2px;
 }
-fieldset {
-    margin-bottom: 30px;
-    border: none;
-}
+
 
 button {
     width: 100%;
@@ -64,11 +63,11 @@ button {
     cursor: pointer;
     outline: 0;
 }
-@media screen and (min-width: 480px) {
-    form {
-        max-width: 480px;
-    }
-}
+/*@media screen and (min-width: 480px) {*/
+    /*form {*/
+        /*max-width: 480px;*/
+    /*}*/
+/*}*/
 .button {
     width: 440px;
     display: block;
@@ -104,18 +103,17 @@ button {
 }
 #list {
     font-size: 15px;
-    color: #8a97a0;
+    color: #57636c;
     position: fixed;
     right: 10px;
     top: 100px;
     width: 20em;
-    margin-top: -2.5em;
-    margin-bottom: -2.5em;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    /*margin-top: 2.5em;*/
+    /*margin-bottom: 2.5em;*/
+    border-radius: 10px;
     background-color: #f4f7f8;
+    border: 1px solid #57636c;
+
 }
 .margin-top-big {
     margin-top: 50px;
@@ -123,4 +121,50 @@ button {
 .margin-left-right {
     margin-right: 20px;
     margin-left: 20px;
+}
+.pos-fix {
+    position: fixed;
+}
+.error {
+    color: red;
+}
+.bacground-div {
+    width: 50%;
+    position: fixed;
+    left: 50%;
+    margin: 0px -25%;
+    padding: 0px;
+}
+.delete-button {
+
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    border-radius: 25px;
+    border: 0px solid;
+    background: #54a786;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 15px;
+    position: relative;
+    text-align: center;
+}
+.button-mypage {
+
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    background: mediumaquamarine;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: 0;
+}
+.div-button-mypage{
+    margin-left: 1100px;
+    position: fixed;
+    top: 30px;
 }

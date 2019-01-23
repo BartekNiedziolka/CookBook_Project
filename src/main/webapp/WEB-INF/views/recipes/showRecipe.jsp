@@ -22,7 +22,7 @@
         </c:forEach>
     </ul>
     </div>
-    <a href = "<c:url value = "/component/add/${recipe.getId()}"/>">Edytuj</a>
+    <a href = "<c:url value = "/component/add/${recipe.getId()}"/>"><button class="edit-button">Edytuj</button></a>
 </div>
 <div class="center ">
     <h2>
@@ -52,10 +52,11 @@
     <c:if test="${not empty recipe.signature}">
         <c:out value="${recipe.signature}"/>
     </c:if>
-    <a href = "<c:url value = "/recipe/edit/${recipe.getId()}"/>">Edytuj</a>
+    <a href = "<c:url value = "/recipe/edit/${recipe.getId()}"/>"><button class="edit-button">Edytuj</button></a>
 </div>
-<div class="bacground-div">
-
+<div class="div-button-mypage">
+<a href = "<c:url value = "/user/main"/>"><button class="button-mypage">Strona główna</button></a>
 </div>
+<div class="bacground-div"></div>
 </body>
 </html>

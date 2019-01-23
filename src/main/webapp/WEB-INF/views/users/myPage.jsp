@@ -7,7 +7,6 @@
     <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body-mypage">
@@ -19,26 +18,26 @@
 </div>
 
 <div class="center">
-    <h3>Moje przepisy:</h3>
-    <div class="table-center">
-        <table class="table table-condensed">
+    <div class="table-center form-group font-center">
+        <h3>Moje przepisy:</h3>
+        <table class="table table-condensed form-group">
             <thead>
             <tr>
                 <th>Nazwa</th>
-                <th>Typ</th>
-                <th>Zobacz</th>
-                <th>Usuń</th>
+                <th class="font-center">Typ</th>
+                <th class="font-center">Zobacz</th>
+                <th class="font-center">Usuń</th>
             </tr>
             </thead>
         <c:forEach items="${recipes}" var="recipe">
             <tr>
                 <td>${recipe.title}</td>
-                <td>${recipe.timeOfDay}</td>
-                <td>
-                    <a href = "<c:url value = "/recipe/show/${recipe.getId()}"/>">Zobacz</a>
+                <td class="font-center">${recipe.timeOfDay}</td>
+                <td class="font-center">
+                    <a href = "<c:url value = "/recipe/show/${recipe.getId()}"/>"><button class="edit-button">Zobacz</button></a>
                 </td>
-                <td>
-                    <a href = "<c:url value = "/recipe/delete/${recipe.getId()}"/>">Usuń</a>
+                <td class="font-center">
+                    <a href = "<c:url value = "/recipe/delete/${recipe.getId()}"/>"><button class="edit-button">Usuń</button></a>
                 </td>
             </tr>
         </c:forEach>

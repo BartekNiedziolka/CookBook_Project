@@ -57,7 +57,7 @@ public class ComponentController {
     @RequestMapping(value = "/add/{recipeId}", method = RequestMethod.POST)
     public String saveComponent(@Valid QuantityComponent quantityComponent, BindingResult result, @PathVariable long recipeId) {
         if (result.hasErrors()) {
-            return "/components/addComponents";
+            return "redirect:/component/add/{recipeId}";
         }
 
         Component component = componentRepository.findOneByName(quantityComponent.getName());

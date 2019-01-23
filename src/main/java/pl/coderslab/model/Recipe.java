@@ -19,7 +19,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Size(min = 5, max = 100)
+    @Size(min = 5, max = 100, message = "Nazwa musi być dłuższa niż 5 znaków")
     @NotBlank
     private String title;
 
@@ -30,7 +30,7 @@ public class Recipe {
     private List<QuantityComponent> quantityComponents = new ArrayList<>();
 
     @Size(max = 1000)
-    @NotBlank
+    @NotBlank(message = "Pole nie może być puste")
     private String description;
 
     @Column(name = "time_of_day", length = 20)

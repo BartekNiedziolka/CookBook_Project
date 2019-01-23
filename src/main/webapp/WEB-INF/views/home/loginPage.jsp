@@ -13,17 +13,6 @@
 <form:form modelAttribute="user" method="post" name="f">
 
     <h1 class="login-title">Logowanie</h1>
-    <%--<div class="form-group">--%>
-        <%--<div class="col-xs-15">--%>
-            <%--<div>--%>
-                <%--<c:if test="${param.error != null}">--%>
-                    <%--<div class="alert alert-danger col-xs-offset-1 col-xs-10">--%>
-                        <%--Invalid username or password--%>
-                    <%--</div>--%>
-                <%--</c:if>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
     <div style="margin-bottom: 1px" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
         <input type="text" name="userName" placeholder="login" class="login-input">

@@ -16,15 +16,15 @@ public class User {
     private Long id;
 
     @Column(length = 50, name = "user_name", unique = true)
-    @NotBlank
+    @NotBlank(message = "Pole nie może być puste")
     private String userName;
 
-    @Email
-    @NotBlank
+    @Email(message = "Nieprawidłowy e-mail")
+    @NotBlank(message = "Pole nie może być puste")
     @Column(unique = true)
     private String email;
 
-    @NotBlank
+    @NotBlank(message = "Pole nie może być puste")
     private String password;
 
     @OneToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "user", fetch = FetchType.EAGER)

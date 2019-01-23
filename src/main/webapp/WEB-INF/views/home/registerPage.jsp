@@ -11,11 +11,11 @@
 <body class="body-home">
 <form:form method="post" modelAttribute="user" class="login" name="f">
     <h1 class="login-title">Rejestracja</h1>
-    <form:errors path="userName"/>
+    <form:errors path="userName" cssClass="error"/>
     <form:input class="login-input" path="userName" placeholder="login"/>
-    <form:errors path="email"/>
+    <form:errors path="email" cssClass="error"/>
     <form:input class="login-input" path="email" placeholder="email"/>
-    <form:errors path="password"/>
+    <form:errors path="password" cssClass="error"/>
     <form:password class="login-input" path="password" placeholder="password"/>
     <input type="submit" value="Zarejestruj" class="login-button">
 </form:form>

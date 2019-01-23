@@ -5,53 +5,47 @@
 <html>
 <head>
     <title>Title</title>
-    <%--<link href="<c:url value="/resources/css/home.css" />" rel="stylesheet" type="text/css">--%>
     <link href="<c:url value="/resources/css/form.css" />" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,300" rel="stylesheet" type="text/css">
 </head>
-<body class="">
-<div>
-        <form:form modelAttribute="recipe" method="post">
+<body class="body-form">
+        <form:form modelAttribute="recipe" method="post" cssClass="form">
 
-            <h1 class="login-title">Dodaj przepis</h1>
+            <h1>Dodaj przepis</h1>
 
             <form:hidden path="id"></form:hidden>
             <form:hidden path="user.id"></form:hidden>
+            <form:errors path="title" cssClass="error"/><br>
             <label>Nazwa dania:</label><br>
-            <div>
             <form:input path="title" placeholder ="Nazwa dania"/><br>
-            <form:errors path="title"/><br>
-            </div>
 
+            <form:errors path="description" cssClass="error"/><br>
             <label>Sposób przygotowania:</label><br>
-            <div>
-            <form:textarea path="description" placeholder ="Sposób przygotowania" style="height:200px"/><br>
-            </div>
-            <form:errors path="description"/><br>
+            <form:textarea path="description" placeholder ="Sposób przygotowania" style="height:150px"/><br>
 
+            <form:errors path="mealType" cssClass="error"/><br>
             <label>Rodzaj posiłku:</label><br>
-            <div>
                 <form:select path="mealType">
                     <form:option value="" label="--Wybierz--"/>
                     <form:options items="${mealtypes}"/>
                 </form:select><br>
-            </div>
-            <form:errors path="mealType"/><br>
 
+            <form:errors path="timeOfDay" cssClass="error"/><br>
             <label>Pora dnia:</label><br>
             <form:select path="timeOfDay">
                 <form:option value="" label="--Wybierz--"/>
                 <form:options items="${timeofdays}"/>
             </form:select><br>
-            <form:errors path="timeOfDay"/><br>
 
             <label>Dieta:</label><br>
-            <div>
+            <div class="text-left">
                 <form:checkboxes items="${diets}" path="diet" delimiter="<br />" />
             </div>
 
             <button type="submit">Dodaj</button>
         </form:form>
-    </div>
+        <div class="div-button-mypage">
+            <a href = "<c:url value = "/user/main"/>"><button class="button-mypage">Strona główna</button></a>
+        </div>
 </body>
 </html>
