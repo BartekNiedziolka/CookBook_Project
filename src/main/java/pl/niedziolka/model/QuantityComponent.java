@@ -1,5 +1,6 @@
 package pl.niedziolka.model;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -19,11 +20,11 @@ public class QuantityComponent {
     private Integer quantity;
 
     @Transient
-    @NotEmpty
+    @NotBlank
     private String name;
 
     @Column(name = "unit_of_measurement", length = 15)
-    @NotEmpty
+    @NotBlank
     private String unitOfMeasurement;
 
     @ManyToOne
