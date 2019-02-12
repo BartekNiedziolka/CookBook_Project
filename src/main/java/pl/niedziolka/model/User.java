@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import pl.niedziolka.validator.UniqueEmail;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,13 +18,13 @@ public class User {
     private Long id;
 
     @Column(length = 50, name = "user_name", unique = true)
+    @Size(min = 3, max = 20)
     @NotBlank
     private String userName;
 
     @Email
     @NotBlank
     @Column(unique = true)
-    @UniqueEmail
     private String email;
 
     @NotBlank

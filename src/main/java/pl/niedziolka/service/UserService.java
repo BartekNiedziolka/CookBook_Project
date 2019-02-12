@@ -17,11 +17,15 @@ public class UserService {
     UserRepository userRepository;
 
 
+    public boolean checkIfUserWithGivenEmailExist(User user){
+        return userRepository.findByEmail(user.getEmail()) != null;
+    }
+    public boolean checkIfUserWithGivenLoginExist(User user){
+        return userRepository.findByUserName(user.getUserName()) != null;
+    }
+
     public boolean checkIfUserExists(User user){
-        if(userRepository.findByEmail(user.getEmail()) != null || userRepository.findByUserName(user.getUserName()) != null){
-            return true;
-        }
-        return false;
+        return checkIfUserWithGivenEmailExist(user) || checkIfUserWithGivenLoginExist(user);
     }
 
     public boolean successfulLogin(String login, String password){

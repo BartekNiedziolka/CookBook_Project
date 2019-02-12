@@ -6,6 +6,8 @@ import pl.niedziolka.repository.UserRepository;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import javax.validation.constraints.Max;
+import java.util.List;
 
 public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String>{
 
@@ -19,11 +21,13 @@ public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, St
 
     @Override
     public boolean isValid(String email, ConstraintValidatorContext constraintValidatorContext) {
-        User existingUser = userRepository.findByEmail(email);
-        if (existingUser != null) {
+        try {
+            List<String> emailsList = userRepository.queryFindAllEmails();
+            return !emailsList.contains(email);
+
+        } catch (NullPointerException e){
+
             return false;
-        } else {
-            return true;
         }
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.niedziolka.service.UserService;
 import pl.niedziolka.model.User;
 
+import javax.persistence.Table;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -33,8 +34,18 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/home/register", method = RequestMethod.POST)
-    public String add(@ModelAttribute("user")@Valid User user, BindingResult validResult){
-        if (validResult.hasErrors() || userService.checkIfUserExists(user)) {
+    public String add(@ModelAttribute("user")@Valid User user, BindingResult validResult, Model model, HttpSession session){
+        boolean userExist = false;
+        if(userService.checkIfUserWithGivenLoginExist(user)){
+            model.addAttribute("badLogin", "Nazwa użytkownika jest już zajęta.");
+            userExist = true;
+        }
+        if(userService.checkIfUserWithGivenEmailExist(user)){
+            model.addAttribute("badEmail", "Konto o podanym e-mail juz istnieje.");
+            userExist = true;
+        }
+
+        if (validResult.hasErrors() || userExist) {
             return "home/registerPage";
         }else {
             userService.registerUser(user);

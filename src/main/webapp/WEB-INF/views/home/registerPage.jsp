@@ -12,8 +12,14 @@
 <form:form method="post" modelAttribute="user" class="login" name="f">
     <h1 class="login-title">Rejestracja</h1>
     <form:errors path="userName" cssClass="error"/>
+    <c:if test="${not empty badLogin}">
+        <div class="error">${badLogin}</div>
+    </c:if>
     <form:input class="login-input" path="userName" placeholder="login"/>
     <form:errors path="email" cssClass="error"/>
+    <c:if test="${not empty badEmail}">
+        <div class="error">${badEmail}</div>
+    </c:if>
     <form:input class="login-input" path="email" placeholder="email"/>
     <form:errors path="password" cssClass="error"/>
     <form:password class="login-input" path="password" placeholder="password"/>
