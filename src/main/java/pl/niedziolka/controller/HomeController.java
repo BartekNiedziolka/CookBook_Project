@@ -36,11 +36,11 @@ public class HomeController {
     @RequestMapping(value = "/home/register", method = RequestMethod.POST)
     public String add(@ModelAttribute("user")@Valid User user, BindingResult validResult, Model model, HttpSession session){
         boolean userExist = false;
-        if(userService.checkIfUserWithGivenLoginExist(user)){
+        if(userService.checkIfUserWithGivenLoginExists(user)){
             model.addAttribute("badLogin", "Nazwa użytkownika jest już zajęta.");
             userExist = true;
         }
-        if(userService.checkIfUserWithGivenEmailExist(user)){
+        if(userService.checkIfUserWithGivenEmailExists(user)){
             model.addAttribute("badEmail", "Konto o podanym e-mail juz istnieje.");
             userExist = true;
         }

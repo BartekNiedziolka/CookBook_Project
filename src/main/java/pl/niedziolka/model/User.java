@@ -2,6 +2,7 @@ package pl.niedziolka.model;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import pl.niedziolka.validator.Password;
 import pl.niedziolka.validator.UniqueEmail;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class User {
     private String email;
 
     @NotBlank
+    @Password
     private String password;
 
     @OneToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "user", fetch = FetchType.EAGER)
